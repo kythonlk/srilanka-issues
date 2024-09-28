@@ -1,0 +1,90 @@
+{
+  "header": {
+    "title": "Sri Lankan Citizen Portal",
+    "complaints": "Complaints",
+    "suggestions": "Suggestions",
+    "important": "Important",
+    "createForm": "Create New Form"
+  },
+  "feedbackForm": {
+    "title": "Sri Lanka Feedback Form",
+    "des": "Submit your complaints or suggestions to the government",
+    "category": {
+      "label": "Complaint/Suggestion",
+      "placeholder": "Select category",
+      "infrastructure": "Infrastructure",
+      "education": "Education",
+      "healthcare": "Healthcare",
+      "environment": "Environment",
+      "other": "Other"
+    },
+    "dateOfOccurrence": {
+      "label": "Date of Occurrence",
+      "placeholder": "Pick a date"
+    },
+    "description": {
+      "label": "Issue Description",
+      "placeholder": "Describe your complaint or suggestion"
+    },
+    "location": {
+      "label": "Location",
+      "placeholder": "Enter the location"
+    },
+    "moreDetails": "Give More Details",
+    "additionalDetails": {
+      "fullName": {
+        "label": "Full Name",
+        "placeholder": "Enter your full name (optional)"
+      },
+      "email": {
+        "label": "Email Address",
+        "placeholder": "Enter your email (optional)"
+      },
+      "phone": {
+        "label": "Phone Number",
+        "placeholder": "Enter your phone number (optional)"
+      },
+      "responseMethod": {
+        "label": "Preferred Method of Response",
+        "placeholder": "Select preferred method",
+        "email": "Email",
+        "phone": "Phone",
+        "mail": "Mail"
+      },
+      "province": {
+        "label": "Province",
+        "placeholder": "Select province",
+        "western": "Western",
+        "central": "Central",
+        "southern": "Southern"
+      },
+      "district": {
+        "label": "District",
+        "placeholder": "Select district",
+        "colombo": "Colombo",
+        "gampaha": "Gampaha",
+        "kalutara": "Kalutara"
+      },
+      "gmDivision": {
+        "label": "Grama Niladhari Division",
+        "placeholder": "GM name (optional)"
+      },
+      "mapLink": {
+        "label": "Map Link",
+        "placeholder": "Enter Google Maps link (optional)"
+      },
+      "attachment": {
+        "label": "Attachment/Photo",
+        "placeholder": "Choose a file"
+      },
+      "skip": "Skip Additional Details"
+    },
+    "errorMessage": "Something went wrong. Please try again.",
+    "submitButton": "Submit Feedback",
+    "submitting": "Submitting...",
+    "thankYou": {
+      "title": "Thank You!",
+      "message": "Your feedback has been submitted successfully. We appreciate your input for improving Sri Lanka."
+    }
+  }
+}

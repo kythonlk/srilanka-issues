@@ -47,7 +47,7 @@ export default function FeedbackForm() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gray-100 dark:bg-gray-800 flex items-center justify-center px-10 py-4">
       <Card className="w-full max-w-7xl mx-auto">
         <CardHeader>
           <CardTitle>Sri Lanka Feedback Form</CardTitle>

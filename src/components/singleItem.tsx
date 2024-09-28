@@ -18,9 +18,8 @@ const mockData = {
 }
 
 export default function Details() {
-  // const { id } = useParams();
-
-  // In a real application, you would fetch the data based on the ID
+  const { id } = useParams();
+  console.log(id);
   const item = mockData
 
   return (
