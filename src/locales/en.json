@@ -30,7 +30,7 @@
       "label": "Location",
       "placeholder": "Enter the location"
     },
-    "moreDetails": "Give More Details",
+    "moreDetails": "Provide additional details",
     "additionalDetails": {
       "fullName": {
         "label": "Full Name",

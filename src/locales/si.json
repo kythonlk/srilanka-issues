@@ -2,8 +2,89 @@
   "header": {
     "title": "ශ්‍රී ලංකා පුරවැසි ද්වාරය",
     "complaints": "පැමිණිලි",
-    "suggestions": " යෝජනා",
+    "suggestions": "යෝජනා",
     "important": "වැදගත්",
-    "createForm": "නව පෝරමයක් තනන්න"
+    "createForm": "නව පෝරමය"
+  },
+  "feedbackForm": {
+    "title": "ප්‍රතිපෝෂණ පෝරමය",
+    "des": "ඔබේ පැමිණිල්ල හෝ යෝජනාව රජයට ඉදිරිපත් කරන්න",
+    "category": {
+      "label": "ප්‍රවර්ගය",
+      "placeholder": "තෝරන්න",
+      "infrastructure": "යටිතල පහසුකම්",
+      "education": "අධ්‍යාපනය",
+      "healthcare": "සෞඛ්‍ය",
+      "environment": "පරිසරය",
+      "other": "වෙනත්"
+    },
+    "dateOfOccurrence": {
+      "label": "දිනය",
+      "placeholder": "දිනයක් තෝරන්න"
+    },
+    "description": {
+      "label": "විස්තරය",
+      "placeholder": "විස්තර කරන්න"
+    },
+    "location": {
+      "label": "ස්ථානය",
+      "placeholder": "ස්ථානය ඇතුලත් කරන්න"
+    },
+    "moreDetails": "අමතර විස්තර ලබා දෙන්න ",
+    "additionalDetails": {
+      "fullName": {
+        "label": "නම",
+        "placeholder": "නම (විකල්ප)"
+      },
+      "email": {
+        "label": "ඊමේල්",
+        "placeholder": "ඊමේල් (විකල්ප)"
+      },
+      "phone": {
+        "label": "දුරකථන",
+        "placeholder": "දුරකථන අංකය (විකල්ප)"
+      },
+      "responseMethod": {
+        "label": "ප්‍රතිචාර ක්‍රමය",
+        "placeholder": "තෝරන්න",
+        "email": "ඊමේල්",
+        "phone": "දුරකථනය",
+        "mail": "තැපැල්"
+      },
+      "province": {
+        "label": "පළාත",
+        "placeholder": "පළාත තෝරන්න",
+        "western": "බටහිර",
+        "central": "මධ්‍යම",
+        "southern": "දකුණු"
+      },
+      "district": {
+        "label": "දිස්ත්‍රික්කය",
+        "placeholder": "දිස්ත්‍රික්කය තෝරන්න",
+        "colombo": "කොළඹ",
+        "gampaha": "ගම්පහ",
+        "kalutara": "කළුතර"
+      },
+      "gmDivision": {
+        "label": "ග්‍රාම නිලධාරී වසම",
+        "placeholder": "ගම නම (විකල්ප)"
+      },
+      "mapLink": {
+        "label": "සිතියම් සබැඳිය",
+        "placeholder": "Google Maps සබැඳිය (විකල්ප)"
+      },
+      "attachment": {
+        "label": "ඇමුණුම/ඡායාරූපය",
+        "placeholder": "ගොනුවක් තෝරන්න"
+      },
+      "skip": "මෙම අවස්ථාවේදී අමතර විස්තර මඟ හැරිය යුතුයි"
+    },
+    "errorMessage": "දෝෂයක් ඇතිවී ඇත. නැවත උත්සාහ කරන්න.",
+    "submitButton": "උඩුගත කරන්න",
+    "submitting": "ඉදිරිපත් කරමින්...",
+    "thankYou": {
+      "title": "ස්තූතියි!",
+      "message": "ඔබේ ප්‍රතිපෝෂණය සාර්ථකයි. ඔබේ සහය ස්තූතියි!"
+    }
   }
 }
