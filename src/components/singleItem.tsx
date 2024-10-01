@@ -23,9 +23,10 @@ export default function Details() {
   const item = mockData
 
   return (
-    <div className="container mx-auto p-4">
+
+    <div className="bg-gray-100 dark:bg-gray-800 min-h-screen p-4 px-10 text-gray-100">
       <a href='/'>
-        <Button variant="outline" className="mb-4">
+        <Button variant="outline" className="mb-4 text-gray-600 dark:text-gray-200">
           Back to Dashboard
         </Button>
       </a>
@@ -35,30 +36,30 @@ export default function Details() {
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <p className="text-gray-600 mb-4">{item.description}</p>
+            <div className=' text-gray-600 dark:text-gray-200 '>
+              <p className="mb-4">{item.description}</p>
               <div className="space-y-2">
-                <div className="flex items-center text-sm text-gray-500">
+                <div className="flex items-center text-sm">
                   <MapPinIcon className="h-4 w-4 mr-2" />
                   <span className="font-semibold mr-2">Location:</span> {item.location}
                 </div>
-                <div className="flex items-center text-sm text-gray-500">
+                <div className="flex items-center text-sm">
                   <CalendarIcon className="h-4 w-4 mr-2" />
                   <span className="font-semibold mr-2">Date:</span> {item.date}
                 </div>
-                <div className="flex items-center text-sm text-gray-500">
+                <div className="flex items-center text-sm">
                   <FolderIcon className="h-4 w-4 mr-2" />
                   <span className="font-semibold mr-2">Province:</span> {item.province}
                 </div>
-                <div className="flex items-center text-sm text-gray-500">
+                <div className="flex items-center text-sm">
                   <FolderIcon className="h-4 w-4 mr-2" />
                   <span className="font-semibold mr-2">District:</span> {item.district}
                 </div>
-                <div className="flex items-center text-sm text-gray-500">
+                <div className="flex items-center text-sm">
                   <FolderIcon className="h-4 w-4 mr-2" />
                   <span className="font-semibold mr-2">Local Authority:</span> {item.gm}
                 </div>
-                <div className="flex items-center text-sm text-gray-500">
+                <div className="flex items-center text-sm">
                   <LinkIcon className="h-4 w-4 mr-2" />
                   <span className="font-semibold mr-2">Map:</span>
                   <a href={item.mapLink} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">

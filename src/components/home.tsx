@@ -31,7 +31,7 @@ const mockData = [
 
 export default function Home() {
   return (
-    <div className="container mx-auto p-4">
+    <div className="bg-gray-100 dark:bg-gray-800 min-h-screen p-4 px-10 text-gray-100">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {mockData.map((item) => (
           <Card key={item.id} className="overflow-hidden">
@@ -39,12 +39,12 @@ export default function Home() {
               <div className="flex items-center mt-2">
                 <CardTitle className="text-lg">{item.category}</CardTitle>
               </div>
-              <p className="text-sm text-gray-600 mb-2">{item.description.substring(0, 100)}...</p>
-              <div className="flex items-center text-sm text-gray-500 mb-1">
+              <p className="text-sm text-gray-600 dark:text-gray-200 mb-2">{item.description.substring(0, 100)}...</p>
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-200  mb-1">
                 <MapPinIcon className="h-4 w-4 mr-1" />
                 {item.location}
               </div>
-              <div className="flex items-center text-sm text-gray-500 mb-1">
+              <div className="flex items-center text-sm text-gray-600 dark:text-gray-200 mb-1">
                 <CalendarIcon className="h-4 w-4 mr-1" />
                 {item.date}
               </div>

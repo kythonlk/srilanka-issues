@@ -14,8 +14,8 @@ export default function Header() {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
 
   return (
-    <header className="sticky top-0 z-50  px-10 border-b bg-background/60 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-14 items-center">
+    <header className="sticky top-0 z-50  px-10 border-b bg-background/40 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="flex h-14 items-center">
         <div className="mr-4 hidden md:flex">
           <a href="/" className="mr-6 flex items-center space-x-2">
             <span className="hidden font-bold sm:inline-block">
