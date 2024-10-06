@@ -19,7 +19,16 @@ export default function FeedbackForm() {
   const [category, setCategory] = useState("")
   const [description, setDescription] = useState("")
   const [location, setLocation] = useState("")
-  const [additionalFields, setAdditionalFields] = useState({ fullName: "", email: "", phone: "", responseMethod: "", province: "", district: "", gmDivision: "", mapLink: "" })
+  const [additionalFields, setAdditionalFields] = useState({
+    fullName: "",
+    email: "",
+    phone: "",
+    responseMethod: "",
+    province: "",
+    district: "",
+    gmDivision: "",
+    mapLink: ""
+  })
   const [showAdditionalFields, setShowAdditionalFields] = useState(false)
   const { t } = useTranslation();
 
@@ -132,8 +141,36 @@ export default function FeedbackForm() {
 
             {showAdditionalFields && (
               <>
-                {/* Additional fields code */}
-                {/* Populate additional fields in the form */}
+                <div className="space-y-2">
+                  <Label htmlFor="fullName">{t('feedbackForm.fullName.label')}</Label>
+                  <Input
+                    id="fullName"
+                    placeholder={t('feedbackForm.fullName.placeholder')}
+                    value={additionalFields.fullName}
+                    onChange={(e) => setAdditionalFields({ ...additionalFields, fullName: e.target.value })}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="email">{t('feedbackForm.email.label')}</Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder={t('feedbackForm.email.placeholder')}
+                    value={additionalFields.email}
+                    onChange={(e) => setAdditionalFields({ ...additionalFields, email: e.target.value })}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="phone">{t('feedbackForm.phone.label')}</Label>
+                  <Input
+                    id="phone"
+                    type="tel"
+                    placeholder={t('feedbackForm.phone.placeholder')}
+                    value={additionalFields.phone}
+                    onChange={(e) => setAdditionalFields({ ...additionalFields, phone: e.target.value })}
+                  />
+                </div>
+                {/* Add more fields as needed */}
               </>
             )}
             {!showAdditionalFields && (
