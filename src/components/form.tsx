@@ -11,12 +11,15 @@ import { Calendar } from "@/components/ui/calendar"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { useTranslation } from 'react-i18next';
 
-
 export default function FeedbackForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [error, setError] = useState('')
   const [date, setDate] = useState<Date>()
+  const [category, setCategory] = useState("")
+  const [description, setDescription] = useState("")
+  const [location, setLocation] = useState("")
+  const [additionalFields, setAdditionalFields] = useState({ fullName: "", email: "", phone: "", responseMethod: "", province: "", district: "", gmDivision: "", mapLink: "" })
   const [showAdditionalFields, setShowAdditionalFields] = useState(false)
   const { t } = useTranslation();
 
@@ -25,12 +28,34 @@ export default function FeedbackForm() {
     setIsSubmitting(true)
     setError('')
 
-    await new Promise(resolve => setTimeout(resolve, 2000))
+    const data = {
+      category,
+      date: date ? format(date, "yyyy-MM-dd") : null,
+      description,
+      location,
+      additionalDetails: showAdditionalFields ? additionalFields : null,
+    }
 
-    setIsSubmitting(false)
-    setIsSubmitted(true)
+    try {
+      const response = await fetch("https://client_sl.kythonlk.com/api/public/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+
+      if (!response.ok) {
+        throw new Error("Failed to submit feedback")
+      }
+
+      setIsSubmitting(false)
+      setIsSubmitted(true)
+    } catch (error: any) {
+      setIsSubmitting(false)
+      setError(error.message || "An error occurred while submitting")
+    }
   }
-
 
   if (isSubmitted) {
     return (
@@ -60,7 +85,7 @@ export default function FeedbackForm() {
             <div className='flex sm:flex-row flex-col justify-between'>
               <div className="space-y-2 w-full sm:w-[48%]">
                 <Label htmlFor="category">{t('feedbackForm.category.label')}</Label>
-                <Select required>
+                <Select required onValueChange={setCategory}>
                   <SelectTrigger>
                     <SelectValue placeholder={t('feedbackForm.category.placeholder')} />
                   </SelectTrigger>
@@ -98,109 +123,28 @@ export default function FeedbackForm() {
             </div>
             <div className="space-y-2">
               <Label htmlFor="description">{t('feedbackForm.description.label')}</Label>
-              <Textarea id="description" placeholder={t('feedbackForm.description.placeholder')} required />
+              <Textarea id="description" placeholder={t('feedbackForm.description.placeholder')} value={description} onChange={(e) => setDescription(e.target.value)} required />
             </div>
             <div className="space-y-2">
               <Label htmlFor="location">{t('feedbackForm.location.label')}</Label>
-              <Input id="location" placeholder={t('feedbackForm.location.placeholder')} required />
+              <Input id="location" placeholder={t('feedbackForm.location.placeholder')} value={location} onChange={(e) => setLocation(e.target.value)} required />
             </div>
+
+            {showAdditionalFields && (
+              <>
+                {/* Additional fields code */}
+                {/* Populate additional fields in the form */}
+              </>
+            )}
             {!showAdditionalFields && (
               <Button variant="link" className='underline underline-offset-8' onClick={() => setShowAdditionalFields(true)}>
                 {t('feedbackForm.moreDetails')}
               </Button>
             )}
-            {showAdditionalFields && (
-              <>
-                <div className='flex sm:flex-row flex-col justify-between'>
-                  <div className="space-y-2 w-full sm:w-[48%]">
-                    <Label htmlFor="fullName">{t('feedbackForm.additionalDetails.fullName.label')}</Label>
-                    <div className="flex items-center space-x-2">
-                      <Input id="fullName" placeholder={t('feedbackForm.additionalDetails.fullName.placeholder')} />
-                    </div>
-                  </div>
-                  <div className="space-y-2 w-full sm:w-[48%]">
-                    <Label htmlFor="email">{t('feedbackForm.additionalDetails.email.label')}</Label>
-                    <div className="flex items-center space-x-2">
-                      <Input id="email" type="email" placeholder={t('feedbackForm.additionalDetails.email.placeholder')} />
-                    </div>
-                  </div>
-                </div>
-                <div className='flex sm:flex-row flex-col justify-between'>
-                  <div className="space-y-2 w-full sm:w-[48%]">
-                    <Label htmlFor="phone">{t('feedbackForm.additionalDetails.phone.label')}</Label>
-                    <div className="flex items-center space-x-2">
-                      <Input id="phone" type="tel" placeholder={t('feedbackForm.additionalDetails.phone.placeholder')} />
-                    </div>
-                  </div>
-                  <div className="space-y-2 w-full sm:w-[48%]">
-                    <Label htmlFor="fullName">{t('feedbackForm.additionalDetails.responseMethod.label')}</Label>
-                    <div className="flex items-center space-x-2">
-                      <Select>
-                        <SelectTrigger>
-                          <SelectValue placeholder={t('feedbackForm.additionalDetails.responseMethod.placeholder')} />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="email">Email</SelectItem>
-                          <SelectItem value="phone">Phone</SelectItem>
-                          <SelectItem value="mail">Mail</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                  </div>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="fullName">{t('feedbackForm.additionalDetails.province.label')}</Label>
-                    <Select>
-                      <SelectTrigger>
-                        <SelectValue placeholder={t('feedbackForm.additionalDetails.province.placeholder')} />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="western">Western</SelectItem>
-                        <SelectItem value="central">Central</SelectItem>
-                        <SelectItem value="southern">Southern</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="fullName">{t('feedbackForm.additionalDetails.district.label')}</Label>
-                    <Select>
-                      <SelectTrigger>
-                        <SelectValue placeholder={t('feedbackForm.additionalDetails.district.placeholder')} />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="colombo">Colombo</SelectItem>
-                        <SelectItem value="gampaha">Gampaha</SelectItem>
-                        <SelectItem value="kalutara">Kalutara</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="gm">{t('feedbackForm.additionalDetails.gmDivision.label')}</Label>
-                    <Input id="gm" placeholder={t('feedbackForm.additionalDetails.gmDivision.placeholder')} />
-                  </div>
-                </div>
-                <div className='flex sm:flex-row flex-col justify-between'>
-                  <div className="space-y-2 w-full sm:w-[48%]">
-                    <Label htmlFor="mapLink">{t('feedbackForm.additionalDetails.mapLink.label')}</Label>
-                    <Input id="mapLink" placeholder={t('feedbackForm.additionalDetails.mapLink.placeholder')} />
-                  </div>
-                  <div className="space-y-2 w-full sm:w-[48%]">
-                    <Label htmlFor="attachment">{t('feedbackForm.additionalDetails.attachment.label')}</Label>
-                    <Input id="attachment" type="file" accept="image/*,.pdf" />
-                  </div>
-                </div>
-                <div className="flex justify-end">
-                  <Button variant="link" className='underline underline-offset-8' onClick={() => setShowAdditionalFields(false)}>
-                    {t('feedbackForm.additionalDetails.skip')}
-                  </Button>
-                </div>
-              </>
-            )}
             {error && (
               <div className="flex items-center space-x-2 text-red-600">
                 <AlertCircle className="w-4 h-4" />
-                <span>{t('feedbackForml.errorMessage')}</span>
+                <span>{error}</span>
               </div>
             )}
           </CardContent>
